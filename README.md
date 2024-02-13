@@ -428,7 +428,7 @@ public class Hello {
 	}
 	```  
 
-12. **this Sample**
+12. **This Sample**
 
 	* file: `Sample.java`
 	
@@ -505,33 +505,232 @@ public class Hello {
 
 14. **Inheritance Constructor**
 
-* file: `A.java`
-
-```
-public class A {
+	* file: `A.java`
 	
-	A(){
-		System.out.println("It is A");
-	}
-
-}
-```
-
-* file: `B.java`
-
-```
-public class B extends A {
-	B(){
-		System.out.println("it is B");
-	}
-	
-	
-	
-	public static void main(String[] args) {
-		B b=new B();
-	}
+	```
+	public class A {
 		
-// here initially execute constructor in base class(Class A) then the constructor in the child class(Class B)
+		A(){
+			System.out.println("It is A");
+		}
+	
+	}
+	```
+	
+	* file: `B.java`
+	
+	```
+	public class B extends A {
+		B(){
+			System.out.println("it is B");
+		}
+		
+		
+		
+		public static void main(String[] args) {
+			B b=new B();
+		}
+			
+	// here initially execute constructor in base class(Class A) then the constructor in the child class(Class B)
+	
+	}
+	```   
 
-}
-```   
+15. **Super Sample**
+
+	* file: `A.java`
+	
+	```
+	public class A {
+		
+		int a;
+		
+		void display() {
+			System.out.println("it is A");
+			
+		}
+		
+		
+		A(){
+			System.out.println("it is a A constructor");}
+		
+		A(int a){
+			System.out.println("it is argument construct A");
+		}
+	
+	}
+	```
+	
+	* file: `B.java`
+	
+	```
+	public class B extends A {
+		
+		int a;
+		
+		
+		B(){
+			System.out.println("It is a B constructor");
+		}
+		
+		
+		B(int a){
+			//  super(10); super  should be first statement in method
+			System.out.println("it is argument constructor B");
+			
+		}
+		
+		void display() {
+			
+			
+			System.out.println("it is B");
+			
+			a=20;
+			
+			super.a=30;
+			
+			int c=a+super.a;
+			
+			System.out.println(c);
+			
+		}
+		
+		void baseDisplay() {
+			super.display();
+		}
+		
+		
+		public static void main(String[] args) {
+			B b=new B(10);
+			
+			//b.display();
+			
+			//b.baseDisplay();
+		}
+	
+	}
+	```
+
+16. **Abstract Sample**
+
+	* file: `TextScanner.java`
+	
+	```
+	public class TextScanner {
+		
+		Hello obj;
+		
+		public TextScanner(Hello ob){
+			
+			this.obj=ob;	
+			
+		}
+		void scan() {
+			// code for scan
+			
+			String text="Scanned text";
+			obj.onText(text);
+			
+			
+			
+		}
+	
+	}
+	```
+	
+	* file: `abstract.java`
+	  
+	```
+	public abstract class Hello {
+		
+		abstract void onText(String text);
+	
+	}
+	```
+	
+	* file: `Sample.java`
+	  
+	```
+	public class Sample extends Hello {
+	
+		@Override
+		void onText(String text) {
+			
+			System.out.println(text);
+			// TODO Auto-generated method stub
+			
+			
+			
+			
+		}
+		
+		Sample(){
+			TextScanner ts=new TextScanner(this);
+			ts.scan();
+			
+			
+		}
+		
+		
+		
+		public static void main(String[] args) {
+			
+			Sample s=new Sample();
+			
+		}
+		
+	}
+	```
+
+17. **Thread Sample**
+
+	* file: `ThreadSample.java`
+	
+	```
+	public class ThreadSample extends Thread {
+		
+		@Override
+		public void run() {
+			// TODO Auto-generated method stub
+			super.run();
+			
+			for(int i=0;i<10;i++) {
+				System.out.println("Thread count"+i);
+				
+				
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					// TODO: handle exception
+					
+					e.printStackTrace();
+				}
+			}
+			
+		}
+		
+	}
+	```
+	
+	* file: `Hello.java`
+	
+	```
+	public class Hello {
+		
+		public static void main(String[] args) {
+			ThreadSample st=new ThreadSample();
+			
+			st.start();
+			ThreadSample st1=new ThreadSample();
+			st1.start();
+			
+			ThreadSample st2=new ThreadSample();
+			
+			
+			st2.start();
+		}
+	}
+	```
+
+
+     
