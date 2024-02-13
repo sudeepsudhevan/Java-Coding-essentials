@@ -118,39 +118,39 @@ public class Addtwodimen {
 
 5. **Class Sample**
 
-  * file: `Sample.java`
-  ```
-  public class Sample {
-  	
-  	int a;
-  	int b;
-  	
-  	void display() {
-  	System.out.println("a: "+a+"      b:"+b);
-  	}
-  }
-  ```
-
-  * file: `Hello.java`
-  ```
-  public class Hello {
-  	
-  	public static void main(String a[]) {
-  		
-  		
-  		Sample s1=new Sample();
-  		Sample s2=new Sample();
-  		
-  		s1.a=20;
-  		s2.a=50;
-  		s1.b=100;
-  		s2.b=200;
-  		
-  		s1.display();
-  		s2.display();
-  		
-  	}
-  
-  }
-```
+	  * file: `Sample.java`
+	  ```
+	  public class Sample {
+	  	
+	  	int a;
+	  	int b;
+	  	
+	  	void display() {
+	  	System.out.println("a: "+a+"      b:"+b);
+	  	}
+	  }
+	  ```
+	
+	  * file: `Hello.java`
+	  ```
+	  public class Hello {
+	  	
+	  	public static void main(String a[]) {
+	  		
+	  		
+	  		Sample s1=new Sample();
+	  		Sample s2=new Sample();
+	  		
+	  		s1.a=20;
+	  		s2.a=50;
+	  		s1.b=100;
+	  		s2.b=200;
+	  		
+	  		s1.display();
+	  		s2.display();
+	  		
+	  	}
+	  
+	  }
+	```
 
